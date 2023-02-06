@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  body {
+    margin: 0;
+    height: 0;
+  }
+
+  .print_xy {
+    position: absolute;
+  }
+
+  /* .circle {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    border: 2px dotted;
+    padding: 3px;
+    border-radius: 100%;
+    z-index: 1;
+  }
+
+  .circle:before {
+    content:"";
+    z-index: -1;
+    position: absolute;
+    border: 2px solid;
+    padding: 8px;
+    top: 3px;
+    left: 3px;
+    border-radius: 100%;
+  }
+
+  .circle:after {
+    content:"";
+    z-index: -1;
+    position: absolute;
+    border: 2px solid;
+    padding: 18px;
+    top:-7px;
+    left: -7px;
+    border-radius: 100%;
+  } */
+
+  .h-line {
+    background-color: black;
+    color: black;
+    width: 100vw;
+    height: 3px;
+    position: absolute;
+    margin: 0;
+  }
+
+  .v-line {
+    border-left: thick solid black;
+    height: 100vh;
+    position: absolute;
+  }
+</style>
+<body>
+  <!-- //1. mousemove - clientX, clientY 출력  -->
+  <span class="print_xy"></span>
+  <div class="circle"></div>
+  <hr class="h-line">
+  <div class="v-line"></div>
+  <script>
+    const print_xy = document.querySelector(".print_xy");
+    const circle = document.querySelector(".circle");
+    const hLine = document.querySelector(".h-line");
+    const vLine = document.querySelector(".v-line");
+
+    window.addEventListener("mousemove", (e) => {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+
+      print_xy.style.transform = "translate("+mouseX+"px, "+mouseY+"px)";
+
+      // print_xy.style.left = `${mouseX}px`;
+      // print_xy.style.top = `${mouseY}px`;
+      print_xy.innerText = `${mouseX}px, ${mouseY}px`
+
+      circle.style.transform = `translate(${mouseX - 20}px, ${mouseY - 20}px)`;
+
+      hLine.style.transform = `translateY(${mouseY}px)`;
+
+      vLine.style.transform = `translateX(${mouseX}px)`;
+      // vLine.style.top = `${mouseY / 2}px`;
+
+    })
+  </script>
+
+  <!-- //2. 동그라미 그리기
+  //3. 선그리기 -->
+</body>
+</html>

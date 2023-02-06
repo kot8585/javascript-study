@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.onload = function() {
+      // window 사이즈 재기
+      const $screen = document.getElementsByClassName('screen')[0];
+      const $outer = document.getElementsByClassName('outer')[0];
+      const $inner = document.getElementsByClassName('inner')[0];
+      const $clientWidth = document.getElementsByClassName('clientWidth')[0];
+      const $tag = document.getElementsByClassName('tag')[0];
+
+
+      function changeValue() {
+        $screen.innerText = `window.screen ${window.screen.width}, ${window.screen.height}`;
+        $outer.innerText = `window.outer ${window.outerWidth}, ${window.outerHeight}`;
+        $inner.innerText = `window.inner ${window.innerWidth}, ${window.innerHeight}`;
+        $clientWidth.innerText = `documentElement.clientWidth ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}`;
+      }
+
+        // window.requestAnimationFrame(changeValue);
+        window.addEventListener('resize', () => {
+          console.log("hrllo");
+          $tag.innerText = `WINDOW SIZE
+          window.screen ${window.screen.width}, ${window.screen.height}
+          window.outer ${window.outerWidth}, ${window.outerHeight}
+          window.inner ${window.innerWidth}, ${window.innerHeight}
+          documentElement.clientWidth ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}
+          END!!!`
+          }
+        );
+   
+      // changeValue();
+      setInterval(changeValue, 10);
+
+      
+    }
+  </script>
+</head>
+<body>
+  <div class="tag">window size</div>
+  <div class="screen">window.screen: 0, 0</div>
+  <div class="outer">window.outer: 0, 0</div>
+  <div class="inner">window.inner: 0, 0</div>
+  <div class="clientWidth">documentElement.clientWidth: 0, 0</div>
+</body>
+</html>

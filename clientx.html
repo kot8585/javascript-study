@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+     body {
+      overflow: auto;
+     }
+
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: bisque;
+      margin: 5px;
+    }
+
+    div:nth-of-type(7) {
+      background-color: aquamarine;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+
+</body>
+<script>
+  const divOfSeven = document.getElementsByTagName("div")[6];
+
+  divOfSeven.addEventListener("click", (e) => {
+    const rect = divOfSeven.getBoundingClientRect();
+    console.log(rect);
+    console.log(`client: ${e.clientX}, ${e.clientY}`);    
+    console.log(`page: ${e.pageX}, ${e.pageY}`);
+  })
+</script>
+</html>
